@@ -14,6 +14,9 @@ export const GlobalStyle = createGlobalStyle`
 --medium:500;
 --bold:700;
 --transition: all .4s ease;
+--radius:8px;
+--max-width:1100px;
+--tablet:768px;
 }
 *,
 ::after,
@@ -27,7 +30,7 @@ body{
   color:var(--black);
   font-size:0.9375rem;
   line-height: 25px;
-  font-weight: var(---f-medium);
+  font-weight: var(--light);
 }
 ul{
   list-style:none;
@@ -90,5 +93,32 @@ line-height: 1.2rem;
 letter-spacing: 0.625rem;
 font-size: 0.875rem;
 color:var(--peach);
+}
+.section{
+  width:90vw;
+  max-width:var(--max-width);
+  margin:0 auto;
+}
+.tablet-section{
+  @media screen and (min-width:768px){
+  width:90vw;
+  max-width:var(--max-width);
+  margin:0 auto;
+  }
+}
+
+.menu{
+  a {
+  font-size: 0.8125rem;
+  line-height: 1.5625rem;
+  letter-spacing: 0.125rem;
+  font-weight: var(--medium);
+  color: var(--white);
+  text-transform: uppercase;
+  transition: var(--transition);
+  }
+  a:hover {
+   color: var(--peach);
+  }
 }
 `

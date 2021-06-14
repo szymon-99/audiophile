@@ -45,10 +45,19 @@ module.exports = {
           google: [
             {
               family: "Manrope",
-              variants: ["400", "500", "700"],
+              variants: ["200", "400", "500", "700"],
             },
           ],
         },
+      },
+    },
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: `http://localhost:1337`,
+        queryLimit: 1000, // Defaults to 100
+        collectionTypes: [`products`],
+        singleTypes: [`home-hero`, `products-panel`],
       },
     },
   ],

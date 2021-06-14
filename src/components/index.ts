@@ -1,3 +1,3 @@
-import Layout from "./Layout"
+import { FeaturedProducts } from "./featured-products"
 
-export { Layout }
+export { FeaturedProducts }
