@@ -45,16 +45,17 @@ const FeaturedProducts: FC = () => {
 }
 
 const Wrapper = styled.section`
-  margin: 8rem auto 6rem;
+  margin-bottom: 7.5rem;
   display: grid;
-  grid-row-gap: calc(90vw * 0.5 * 0.35 + 1rem);
+  grid-row-gap: 1rem;
 
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
+    margin-bottom: 6rem;
   }
   @media screen and (min-width: 992px) {
-    margin: 10rem auto 10.5rem;
+    margin-bottom: 10.5rem;
     grid-gap: 2rem;
   }
 `

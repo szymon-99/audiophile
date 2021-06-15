@@ -47,6 +47,9 @@ const Wrapper = styled.section`
       color: var(--peach);
     }
   }
+  .img {
+    border-radius: var(--radius);
+  }
   @media screen and (min-width: 768px) {
     margin-bottom: 6rem;
   }

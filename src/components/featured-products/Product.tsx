@@ -12,7 +12,6 @@ const Product: FC<FeaturedItem> = ({ image, type }) => {
       {pathToImg && (
         <GatsbyImage image={pathToImg} alt={type} className="img" />
       )}
-
       <div className="link">
         <h6>{type}</h6>
         <Link to={`/${type}`}>
@@ -24,53 +23,57 @@ const Product: FC<FeaturedItem> = ({ image, type }) => {
 }
 
 const Wrapper = styled.article`
-  background-color: var(--gray);
-  height: 10.31rem;
   position: relative;
-  border-radius: var(--radius);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .img {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 50%;
-    max-width: 15rem;
-    transform: translate(-50%, -40%);
-  }
+  display: grid;
+  place-items: center;
   .link {
-    margin-top: 5rem;
-    a {
-      display: flex;
-      padding-top: 1rem;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8125rem;
-      line-height: 1.125rem;
-      letter-spacing: 0.0625rem;
-      font-weight: var(--bold);
-      text-transform: uppercase;
-      transition: var(--transition);
-      color: rgba(0, 0, 0, 0.5);
-      svg {
-        display: block;
-        font-size: 1.25rem;
-        color: var(--peach);
-      }
-      :hover {
-        color: var(--peach);
-      }
+    padding-bottom: 2rem;
+  }
+  .img {
+    width: 40%;
+    max-width: 12rem;
+  }
+  ::after {
+    content: "";
+    background-color: var(--gray);
+    height: 10.31rem;
+    border-radius: var(--radius);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+  a {
+    display: flex;
+    padding-top: 1rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8125rem;
+    line-height: 1.125rem;
+    letter-spacing: 0.0625rem;
+    font-weight: var(--bold);
+    text-transform: uppercase;
+    transition: var(--transition);
+    color: rgba(0, 0, 0, 0.5);
+    svg {
+      display: block;
+      font-size: 1.25rem;
+      color: var(--peach);
+    }
+    :hover {
+      color: var(--peach);
     }
   }
   @media screen and (min-width: 768px) {
     .img {
-      width: 75%;
+      width: 60%;
     }
   }
   @media screen and (min-width: 992px) {
-    height: 12.75rem;
+    ::after {
+      height: 12.75rem;
+    }
   }
 `
 

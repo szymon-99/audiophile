@@ -1,10 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 
-const Category = () => {
-  return <Wrapper>Category</Wrapper>
+const Product = () => {
+  return <Wrapper>Produc</Wrapper>
 }
 
 const Wrapper = styled.main``
 
-export default Category
+export default Product

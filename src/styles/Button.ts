@@ -18,7 +18,7 @@ export const PrimaryButton = styled(Link)`
 `
 export const SecondaryButton = styled(PrimaryButton)`
   color: var(--black);
-  background-color: var(--white);
+  background-color: transparent;
   -webkit-box-shadow: inset 0px 0px 0px 1px var(--black);
   -moz-box-shadow: inset 0px 0px 0px 1px var(--black);
   box-shadow: inset 0px 0px 0px 1px var(--black);
