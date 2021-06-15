@@ -44,6 +44,7 @@ const Wrapper = styled.div`
     .cart {
       color: var(--white);
       font-size: 1.5rem;
+      cursor: pointer;
     }
     .menu {
       display: none;

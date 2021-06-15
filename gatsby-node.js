@@ -1,7 +1,26 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+const path = require("path")
 
-// You can delete this file if you're not using it
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const result = await graphql(`
+    query Categories {
+      categories: allStrapiProductsPanel {
+        nodes {
+          panelItem {
+            type
+          }
+        }
+      }
+    }
+  `)
+  console.log(result)
+  result.data.categories.nodes[0].panelItem.forEach(({ type }) => {
+    createPage({
+      path: type,
+      component: path.resolve(`./src/templates/category.tsx`),
+      context: {
+        type,
+      },
+    })
+  })
+}

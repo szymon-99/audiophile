@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
 --dark:#101010;
 --white:#FFFFFF;
 --strong-white:#FAFAFA;
---grey:#F1F1F1;
+--gray:#F1F1F1;
 --peach:#D87D4A;
 --light-peach:#FBAF85;
 --red:#CD2C2C;
@@ -70,6 +70,11 @@ h4{
     letter-spacing: 0.125rem;
   }
 
+h6{
+font-size:0.9375rem;
+line-height: 1.25rem;
+letter-spacing: 0.066rem;
+}
 
 @media screen and (min-width:992px){
   h1{
@@ -85,6 +90,11 @@ h4{
   h3{
     font-size: 2rem;
     letter-spacing: 0.07rem;
+  }
+  h6{
+    font-size:1.125rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.081rem;
   }
 }
 .subtitle{

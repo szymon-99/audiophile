@@ -1,6 +1,5 @@
 import React, { FC } from "react"
 import styled from "styled-components"
-import { MdChevronRight } from "react-icons/md"
 import Product from "./Product"
 import { graphql, useStaticQuery } from "gatsby"
 import { Image } from "../../../types"
@@ -30,21 +29,11 @@ export type FeaturedItem = {
   image: Image
 }
 
-interface FeaturedQuery {
-  data: {
-    nodes: [
-      {
-        panelItem: FeaturedItem[]
-      }
-    ]
-  }
-}
-
 const FeaturedProducts: FC = () => {
   const {
     data: { nodes },
-  } = useStaticQuery<FeaturedQuery>(query)
-  const featuredItems = nodes[0].panelItem
+  } = useStaticQuery(query)
+  const featuredItems: FeaturedItem[] = nodes[0].panelItem
 
   return (
     <Wrapper className="section">
@@ -56,13 +45,16 @@ const FeaturedProducts: FC = () => {
 }
 
 const Wrapper = styled.section`
+  margin: 8rem auto 6rem;
   display: grid;
-  grid-gap: 1rem;
+  grid-row-gap: calc(90vw * 0.5 * 0.35 + 1rem);
 
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
   }
   @media screen and (min-width: 992px) {
+    margin: 10rem auto 10.5rem;
     grid-gap: 2rem;
   }
 `
