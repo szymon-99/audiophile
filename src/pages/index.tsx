@@ -1,7 +1,8 @@
-import React from "react"
+import React, { FC } from "react"
+import { PageProps } from "gatsby"
 import { FeaturedProducts, AboutCard, HomeHero, HomePanel } from "../components"
 
-const index = () => {
+const index: FC<PageProps> = () => {
   return (
     <main>
       <HomeHero />

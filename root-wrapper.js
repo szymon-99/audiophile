@@ -2,15 +2,11 @@ import React from "react"
 import { GlobalStyle } from "./src/styles/GlobalStyle"
 import { Layout } from "./src/layout"
 
-export const rootWrapper = ({ element }) => {
+export const pageWrapper = ({ element }) => {
   return (
-    <>
+    <Layout>
       <GlobalStyle />
       {element}
-    </>
+    </Layout>
   )
-}
-
-export const pageWrapper = ({ element }) => {
-  return <Layout>{element}</Layout>
 }

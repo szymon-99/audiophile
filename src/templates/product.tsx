@@ -1,8 +1,9 @@
-import React from "react"
+import React, { FC } from "react"
 import styled from "styled-components"
+import { PageProps } from "gatsby"
 
-const Product = () => {
-  return <Wrapper>Produc</Wrapper>
+const Product: FC<PageProps> = () => {
+  return <Wrapper>Product</Wrapper>
 }
 
 const Wrapper = styled.main``

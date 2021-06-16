@@ -17,13 +17,13 @@ const Speaker: FC = () => {
 }
 
 const Wrapper = styled.article`
-  height: 20rem;
   border-radius: var(--radius);
   background-image: url(${mobile});
   background-position: center;
   background-size: cover;
   display: grid;
   align-items: center;
+  height: 20rem;
   div {
     margin-left: 1.5rem;
     h4 {
@@ -32,10 +32,16 @@ const Wrapper = styled.article`
   }
 
   @media screen and (min-width: 768px) {
-    background-image: url() (${tablet});
+    background-image: url(${tablet});
+    div {
+      margin-left: 4rem;
+    }
   }
   @media screen and (min-width: 992px) {
     background-image: url(${desktop});
+    div {
+      margin-left: 6rem;
+    }
   }
 `
 export default Speaker

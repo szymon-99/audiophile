@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
 --white:#FFFFFF;
 --strong-white:#FAFAFA;
 --gray:#F1F1F1;
+--dark-gray:#4C4C4C;
 --peach:#D87D4A;
 --light-peach:#FBAF85;
 --red:#CD2C2C;
@@ -76,7 +77,7 @@ line-height: 1.25rem;
 letter-spacing: 0.066rem;
 }
 
-@media screen and (min-width:992px){
+@media screen and (min-width:768px){
   h1{
     font-size:3.5rem;
     line-height: 3.625rem;
@@ -107,13 +108,18 @@ color:var(--peach);
 .section{
   width:90vw;
   max-width:var(--max-width);
-  margin:0 auto;
+  margin:0 auto 7.5rem;
 }
-.tablet-section{
+
   @media screen and (min-width:768px){
-  width:90vw;
-  max-width:var(--max-width);
-  margin:0 auto;
+   .tablet-section{
+    width:90vw;
+    max-width:var(--max-width);
+    margin:0 auto;
+  }
+
+  @media screen and (min-width:992px){
+    margin:0 auto 10rem;
   }
 }
 

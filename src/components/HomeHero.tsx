@@ -37,7 +37,7 @@ const HomeHero = () => {
 
   return (
     <Wrapper>
-      <div className="section">
+      <div className="hero">
         <div className="info">
           <p className="subtitle">new product</p>
           <div className="title">
@@ -59,10 +59,13 @@ const Wrapper = styled.section`
   background-position: bottom;
   background-size: cover;
   margin-bottom: 2.5rem;
-  .section {
+  .hero {
     display: grid;
     place-items: center;
     height: 100%;
+    width: 90vw;
+    max-width: var(--max-width);
+    margin: 0 auto;
   }
   .info {
     width: 90vw;
@@ -105,7 +108,7 @@ const Wrapper = styled.section`
   @media screen and (min-width: 992px) {
     background-image: url(${desktop});
     margin-bottom: 7.5rem;
-    .section {
+    .hero {
       justify-items: left;
     }
     .info {

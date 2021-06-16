@@ -8,7 +8,7 @@ import { Link } from "gatsby"
 const Footer: FC = () => {
   return (
     <Wrapper>
-      <div className="section">
+      <div className="container">
         <div className="underline"></div>
         <nav>
           <div className="logo">
@@ -53,11 +53,14 @@ const Wrapper = styled.footer`
       margin-top: 3rem;
     }
   }
-  .section {
+  .container {
     display: grid;
     grid-row-gap: 3rem;
     place-items: center;
     padding-bottom: 2rem;
+    width: 90vw;
+    max-width: var(--max-width);
+    margin: 0 auto;
   }
   img {
     display: block;
@@ -93,7 +96,7 @@ const Wrapper = styled.footer`
   }
 
   @media screen and (min-width: 768px) {
-    .section {
+    .container {
       padding-bottom: 3rem;
       place-items: initial;
       text-align: left;

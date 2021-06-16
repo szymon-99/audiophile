@@ -15,7 +15,9 @@ const Earphones: FC = () => {
       <div className="info">
         <div className="panel">
           <h4>YX1 EARPHONES</h4>
-          <SecondaryButton to="/products/yx-1">see product</SecondaryButton>
+          <SecondaryButton to="/products/yx-1-wireless">
+            see product
+          </SecondaryButton>
         </div>
       </div>
     </Wrapper>
@@ -35,11 +37,25 @@ const Wrapper = styled.article`
     background-color: var(--gray);
     display: grid;
     align-items: center;
+  }
+  .panel {
+    margin-left: 1.5rem;
+    h4 {
+      margin-bottom: 2rem;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 20rem;
+    grid-gap: 1rem;
     .panel {
-      margin-left: 1.5rem;
-      h4 {
-        margin-bottom: 2rem;
-      }
+      margin-left: 2.5rem;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    grid-gap: 2rem;
+    .panel {
+      margin-left: 6rem;
     }
   }
 `

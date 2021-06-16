@@ -17,6 +17,13 @@ const Panel = () => {
 const Wrapper = styled.section`
   display: grid;
   grid-gap: 1.5rem;
+
+  @media screen and (min-width: 768px) {
+    grid-gap: 2rem;
+  }
+  @media screen and (min-width: 768px) {
+    grid-gap: 3rem;
+  }
 `
 
 export default Panel
