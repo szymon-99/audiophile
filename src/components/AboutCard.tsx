@@ -36,7 +36,7 @@ const Wrapper = styled.section`
   display: grid;
   grid-template-rows: 300px auto;
   text-align: center;
-  margin-bottom: 7.5rem;
+
   article {
     margin-top: 2.5rem;
     p {
@@ -50,11 +50,8 @@ const Wrapper = styled.section`
   .img {
     border-radius: var(--radius);
   }
-  @media screen and (min-width: 768px) {
-    margin-bottom: 6rem;
-  }
+
   @media screen and (min-width: 992px) {
-    margin-bottom: 12.5rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 36.75rem;
     .img {

@@ -77,7 +77,6 @@ const Wrapper = styled.section`
   .subtitle {
     color: var(--white);
     opacity: 50%;
-    text-transform: uppercase;
     margin-bottom: 1rem;
   }
   .title {
