@@ -30,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.products.nodes.forEach(({ slug }) => {
     createPage({
       path: `/products/${slug}`,
-      component: path.resolve(`./src/templates/product.tsx`),
+      component: path.resolve(`./src/templates/product-page.tsx`),
       context: {
         slug,
       },
