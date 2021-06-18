@@ -14,10 +14,11 @@ export const GlobalStyle = createGlobalStyle`
 --regular:400;
 --medium:500;
 --bold:700;
---transition: all .4s ease;
+--transition: all .3s ease-in-out;
 --radius:8px;
 --max-width:1100px;
 --tablet:768px;
+--nav-height:6.125rem;
 }
 *,
 ::after,
@@ -174,5 +175,23 @@ text-transform: uppercase;
     background-color: var(--dark-gray);
     box-shadow: none;
   }
+}
+/* ==========
+TRANSITIONS
+============= */
+
+.cart-enter{
+  opacity:0;
+}
+.cart-enter-active {
+  transition: var(--transition);
+  opacity:1;
+}
+.cart-exit {
+  opacity:1;
+}
+.cart-exit-active{
+  opacity:0;
+  transition: var(--transition);
 }
 `
