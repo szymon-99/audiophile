@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import styled from "styled-components"
 import NavLinks from "./NavLinks"
-import { socialLinks } from "../constants/footer-links"
+import { socialLinks } from "../utils/footer-links"
 import logo from "../images/logo.svg"
 import { Link } from "gatsby"
 

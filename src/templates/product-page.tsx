@@ -6,23 +6,28 @@ import {
   Featured,
   Gallery,
   Product,
+  ProductInfo,
 } from "../components"
 import { FeaturedProduct, IProduct } from "../../types"
 
 interface ProductProps {
   data: {
     product: IProduct
-    featured: FeaturedProduct
+    featured: {
+      nodes: FeaturedProduct[]
+    }
   }
 }
 
 const ProductPage: FC<ProductProps> = ({ data }) => {
   const { product, featured } = data
+  const { included, gallery, features } = product
   return (
     <main>
       <Product product={product} />
-      <Gallery />
-      <Featured featured={featured} />
+      <ProductInfo info={{ features, included }} />
+      <Gallery images={gallery} />
+      <Featured featured={featured.nodes} />
       <Categories />
       <AboutCard />
     </main>

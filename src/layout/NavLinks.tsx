@@ -1,5 +1,5 @@
 import React from "react"
-import { data } from "../constants/nav-links"
+import { data } from "../utils/nav-links"
 import { Link } from "gatsby"
 
 const NavLinks = () => {

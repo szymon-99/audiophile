@@ -3,21 +3,14 @@ import styled from "styled-components"
 import { IProduct } from "../../../types"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import AmountButtons from "../AmountButtons"
+import { formatPrice } from "../../utils/helpers"
 
 interface ProductProps {
   product: IProduct
 }
 
 const Product: FC<ProductProps> = ({ product }) => {
-  const {
-    name,
-    new: newProduct,
-    type,
-    slug,
-    description,
-    price,
-    image,
-  } = product
+  const { name, new: newProduct, type, description, price, image } = product
   const imageData = getImage(image.localFile)
 
   return (
@@ -33,7 +26,7 @@ const Product: FC<ProductProps> = ({ product }) => {
             {type}
           </h2>
           <p className="desc">{description}</p>
-          <h6>{price}</h6>
+          <h6>{formatPrice(price)}</h6>
           <div className="buttons">
             <AmountButtons />
             <button className="btn">Add to cart</button>
@@ -44,6 +37,48 @@ const Product: FC<ProductProps> = ({ product }) => {
   )
 }
 
-const Wrapper = styled.section``
+const Wrapper = styled.section`
+  margin-top: 4rem;
+  display: grid;
+  grid-gap: 2rem;
+  .img {
+    border-radius: var(--radius);
+  }
+  .buttons {
+    display: flex;
+    .btn {
+      margin-left: 1rem;
+    }
+  }
+  .container {
+    display: grid;
+    place-items: center;
+  }
+  .info {
+    display: grid;
+    grid-gap: 1rem;
+  }
+  .desc {
+    opacity: 50%;
+  }
+  @media screen and (min-width: 768px) {
+    margin-top: 5.125rem;
+    grid-template-columns: 1fr 50vw;
+    grid-template-rows: 30rem;
+    grid-gap: 4rem;
+    .info {
+      grid-gap: 2rem;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 35rem;
+    grid-gap: initial;
+    margin-top: 10rem;
+    .info {
+      margin-left: 10vw;
+    }
+  }
+`
 
 export default Product

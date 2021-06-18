@@ -144,6 +144,7 @@ text-transform: uppercase;
   font-size: 0.8125rem;
   text-transform: uppercase;
   border:none;
+  cursor: pointer;
   padding: 1rem 2rem;
   color: var(--white);
   background-color: var(--peach);

@@ -3,7 +3,7 @@ import AboutCard from "./AboutCard"
 import HomeHero from "./HomeHero"
 import { HomePanel } from "./homePanel"
 import { CategoryHero, CategoryProducts } from "./categoryPage"
-import { Featured, Gallery, Product } from "./productPage"
+import { Featured, Gallery, Product, ProductInfo } from "./productPage"
 
 export {
   Categories,
@@ -15,4 +15,5 @@ export {
   Featured,
   Gallery,
   Product,
+  ProductInfo,
 }

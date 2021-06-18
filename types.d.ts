@@ -19,13 +19,13 @@ export interface CategoryProduct {
   image: Image
   new: boolean
   id: string
-  price?: number
 }
 
 export interface IProduct extends CategoryProduct {
   included: IncludedItem[]
   features: FeatureDescription[]
   gallery: Image[]
+  price: number
 }
 
 type FeaturedProduct = {
