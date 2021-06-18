@@ -3,14 +3,16 @@ import styled from "styled-components"
 import mobile from "../../images/homePanel/speaker-mobile.jpg"
 import tablet from "../../images/homePanel/speaker-tablet.jpg"
 import desktop from "../../images/homePanel/speaker-desktop.jpg"
-import { SecondaryButton } from "../../styles/Button"
+import { Link } from "gatsby"
 
 const Speaker: FC = () => {
   return (
     <Wrapper>
       <div>
         <h4>ZX7 SPEAKER</h4>
-        <SecondaryButton to="/products/zx-7">see product</SecondaryButton>
+        <Link className="btn secondary" to="/products/zx-7">
+          see product
+        </Link>
       </div>
     </Wrapper>
   )

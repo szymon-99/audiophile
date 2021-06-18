@@ -4,20 +4,11 @@ import { graphql } from "gatsby"
 import {
   CategoryHero,
   AboutCard,
-  FeaturedProducts,
+  Categories,
   CategoryProducts,
 } from "../components"
-import { Image } from "../../types"
+import { CategoryProduct } from "../../types"
 
-export type CategoryProduct = {
-  name: string
-  type: string
-  slug: string
-  description: string
-  image: Image
-  new: boolean
-  id: string
-}
 interface CategoryPageProps {
   pageContext: {
     type: string
@@ -36,7 +27,7 @@ const Category: FC<CategoryPageProps> = ({ pageContext, data }) => {
     <Wrapper>
       <CategoryHero category={category} />
       <CategoryProducts products={products} />
-      <FeaturedProducts />
+      <Categories />
       <AboutCard />
     </Wrapper>
   )

@@ -1,23 +1,31 @@
 import React, { FC } from "react"
-import styled from "styled-components"
 import { graphql } from "gatsby"
-import { FeaturedProducts, AboutCard } from "../components"
-import { FeaturedProduct, Product } from "../../types"
+import {
+  Categories,
+  AboutCard,
+  Featured,
+  Gallery,
+  Product,
+} from "../components"
+import { FeaturedProduct, IProduct } from "../../types"
 
 interface ProductProps {
   data: {
-    product: Product
+    product: IProduct
     featured: FeaturedProduct
   }
 }
 
 const ProductPage: FC<ProductProps> = ({ data }) => {
-  console.log(data)
+  const { product, featured } = data
   return (
-    <Wrapper>
-      <FeaturedProducts />
+    <main>
+      <Product product={product} />
+      <Gallery />
+      <Featured featured={featured} />
+      <Categories />
       <AboutCard />
-    </Wrapper>
+    </main>
   )
 }
 
@@ -29,6 +37,7 @@ export const query = graphql`
       type
       new
       name
+      id
       description
       features {
         desc
@@ -67,7 +76,5 @@ export const query = graphql`
     }
   }
 `
-
-const Wrapper = styled.main``
 
 export default ProductPage

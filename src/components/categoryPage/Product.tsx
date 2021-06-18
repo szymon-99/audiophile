@@ -1,8 +1,8 @@
 import React, { FC } from "react"
 import styled from "styled-components"
-import { CategoryProduct } from "../../templates/category"
+import { Link } from "gatsby"
+import { CategoryProduct } from "../../../types"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { PrimaryButton } from "../../styles/Button"
 
 interface ProductProps {
   product: CategoryProduct
@@ -12,7 +12,6 @@ interface ProductProps {
 const Product: FC<ProductProps> = ({ product, reverse }) => {
   const { name, slug, description, type, new: newProduct, image } = product
   const imageData = getImage(image.localFile)
-
   return (
     <Wrapper reverse={reverse}>
       {imageData && (
@@ -25,13 +24,15 @@ const Product: FC<ProductProps> = ({ product, reverse }) => {
           {type}
         </h2>
         <p className="desc">{description}</p>
-        <PrimaryButton to={`/products/${slug}`}>see product</PrimaryButton>
+        <Link className="btn" to={`/products/${slug}`}>
+          see product
+        </Link>
       </div>
     </Wrapper>
   )
 }
 interface ArticleProps {
-  reverse: true | undefined
+  reverse?: true
 }
 
 const Wrapper = styled.article<ArticleProps>`

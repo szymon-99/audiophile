@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import styled from "styled-components"
-import { CategoryProduct } from "../../templates/category"
+import { CategoryProduct } from "../../../types"
 import Product from "./Product"
 
 interface CategoryProductsProps {

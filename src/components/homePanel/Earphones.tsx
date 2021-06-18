@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import styled from "styled-components"
 import { StaticImage } from "gatsby-plugin-image"
-import { SecondaryButton } from "../../styles/Button"
+import { Link } from "gatsby"
 
 const Earphones: FC = () => {
   return (
@@ -15,9 +15,9 @@ const Earphones: FC = () => {
       <div className="info">
         <div className="panel">
           <h4>YX1 EARPHONES</h4>
-          <SecondaryButton to="/products/yx-1-wireless">
+          <Link className="btn secondary" to="/products/yx-1-wireless">
             see product
-          </SecondaryButton>
+          </Link>
         </div>
       </div>
     </Wrapper>

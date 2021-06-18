@@ -1,14 +1,18 @@
-import { FeaturedProducts } from "./featured-products"
+import { Categories } from "./categoriesPanel"
 import AboutCard from "./AboutCard"
 import HomeHero from "./HomeHero"
 import { HomePanel } from "./homePanel"
-import { CategoryHero, CategoryProducts } from "./category"
+import { CategoryHero, CategoryProducts } from "./categoryPage"
+import { Featured, Gallery, Product } from "./productPage"
 
 export {
-  FeaturedProducts,
+  Categories,
   AboutCard,
   HomeHero,
   HomePanel,
   CategoryHero,
   CategoryProducts,
+  Featured,
+  Gallery,
+  Product,
 }

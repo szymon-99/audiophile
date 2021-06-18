@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { PrimaryButton } from "../styles/Button"
+import { Link } from "gatsby"
 import { graphql, useStaticQuery } from "gatsby"
 import mobile from "../images/homeHero/mobile.jpg"
 import desktop from "../images/homeHero/desktop.jpg"
@@ -45,7 +45,9 @@ const HomeHero = () => {
             <h1>{type}</h1>
           </div>
           <p className="desc">{desc}</p>
-          <PrimaryButton to={`/products/${slug}`}>see product</PrimaryButton>
+          <Link className="btn" to={`/products/${slug}`}>
+            see product
+          </Link>
         </div>
       </div>
     </Wrapper>

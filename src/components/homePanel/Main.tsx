@@ -2,7 +2,7 @@ import React, { FC } from "react"
 import styled from "styled-components"
 import { StaticImage } from "gatsby-plugin-image"
 import circles from "../../images/homePanel/circles.svg"
-import { SecondaryButton } from "../../styles/Button"
+import { Link } from "gatsby"
 
 const Main: FC = () => {
   return (
@@ -19,7 +19,9 @@ const Main: FC = () => {
           Upgrade to premium speakers that are phenomenally built to deliver
           truly remarkable sound.
         </p>
-        <Button to="/products/zx-9">see product</Button>
+        <Link className="btn secondary gray" to="/products/zx-9">
+          see product
+        </Link>
       </div>
     </Wrapper>
   )
@@ -80,14 +82,6 @@ const Wrapper = styled.article`
       grid-column: 8 / -1;
       text-align: left;
     }
-  }
-`
-const Button = styled(SecondaryButton)`
-  background-color: var(--black);
-  color: var(--white);
-  :hover {
-    background-color: var(--dark-gray);
-    box-shadow: none;
   }
 `
 

@@ -11,17 +11,20 @@ type IncludedItem = {
 type FeatureDescription = {
   desc: string
 }
-
-export type Product = {
+export interface CategoryProduct {
   name: string
-  description: String
-  new: boolean
-  price: number
-  slug: string
   type: string
+  slug: string
+  description: string
+  image: Image
+  new: boolean
+  id: string
+  price?: number
+}
+
+export interface IProduct extends CategoryProduct {
   included: IncludedItem[]
   features: FeatureDescription[]
-  image: Image
   gallery: Image[]
 }
 

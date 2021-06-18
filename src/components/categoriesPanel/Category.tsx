@@ -1,11 +1,11 @@
 import React, { FC } from "react"
-import { FeaturedItem } from "./FeaturedProducts"
+import { CategoryItem } from "./Categories"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { MdChevronRight } from "react-icons/md"
 
-const Product: FC<FeaturedItem> = ({ image, type }) => {
+const Category: FC<CategoryItem> = ({ image, type }) => {
   const pathToImg = getImage(image.localFile)
   return (
     <Wrapper>
@@ -77,4 +77,4 @@ const Wrapper = styled.article`
   }
 `
 
-export default Product
+export default Category

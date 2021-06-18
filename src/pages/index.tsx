@@ -1,12 +1,12 @@
 import React, { FC } from "react"
 import { PageProps } from "gatsby"
-import { FeaturedProducts, AboutCard, HomeHero, HomePanel } from "../components"
+import { Categories, AboutCard, HomeHero, HomePanel } from "../components"
 
 const index: FC<PageProps> = () => {
   return (
     <main>
       <HomeHero />
-      <FeaturedProducts />
+      <Categories />
       <HomePanel />
       <AboutCard />
     </main>

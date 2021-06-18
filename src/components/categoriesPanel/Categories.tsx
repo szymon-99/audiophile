@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import styled from "styled-components"
-import Product from "./Product"
+import Category from "./Category"
 import { graphql, useStaticQuery } from "gatsby"
 import { Image } from "../../../types"
 
@@ -23,22 +23,22 @@ const query = graphql`
     }
   }
 `
-export type FeaturedItem = {
+export type CategoryItem = {
   id: number
   type: string
   image: Image
 }
 
-const FeaturedProducts: FC = () => {
+const Categories: FC = () => {
   const {
     data: { nodes },
   } = useStaticQuery(query)
-  const featuredItems: FeaturedItem[] = nodes[0].panelItem
+  const categoryItems: CategoryItem[] = nodes[0].panelItem
 
   return (
     <Wrapper className="section">
-      {featuredItems.map(item => {
-        return <Product key={item.id} {...item} />
+      {categoryItems.map(item => {
+        return <Category key={item.id} {...item} />
       })}
     </Wrapper>
   )
@@ -57,4 +57,4 @@ const Wrapper = styled.section`
   }
 `
 
-export default FeaturedProducts
+export default Categories

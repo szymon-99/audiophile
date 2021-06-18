@@ -138,4 +138,40 @@ text-transform: uppercase;
    color: var(--peach);
   }
 }
+
+.btn{
+  display: inline-block;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  border:none;
+  padding: 1rem 2rem;
+  color: var(--white);
+  background-color: var(--peach);
+  letter-spacing: 0.0625rem;
+  line-height: 1rem;
+  font-weight: var(--bold);
+  transition: var(--transition);
+  :hover {
+    background-color: var(--light-peach);
+  }
+}
+.btn.secondary{
+  color: var(--black);
+  background-color: transparent;
+  -webkit-box-shadow: inset 0px 0px 0px 1px var(--black);
+  -moz-box-shadow: inset 0px 0px 0px 1px var(--black);
+  box-shadow: inset 0px 0px 0px 1px var(--black);
+  :hover {
+    background-color: var(--black);
+    color: var(--white);
+  }
+}
+.btn.secondary.gray{
+  background-color: var(--black);
+  color: var(--white);
+  :hover {
+    background-color: var(--dark-gray);
+    box-shadow: none;
+  }
+}
 `
