@@ -32,4 +32,5 @@ type FeaturedProduct = {
   name: string
   slug: string
   image: Image
+  new: boolean
 }

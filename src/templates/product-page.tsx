@@ -9,6 +9,7 @@ import {
   ProductInfo,
 } from "../components"
 import { FeaturedProduct, IProduct } from "../../types"
+import { sortProducts } from "../utils/helpers"
 
 interface ProductProps {
   data: {
@@ -27,7 +28,7 @@ const ProductPage: FC<ProductProps> = ({ data }) => {
       <Product product={product} />
       <ProductInfo info={{ features, included }} />
       <Gallery images={gallery} />
-      <Featured featured={featured.nodes} />
+      <Featured featured={sortProducts(featured.nodes).slice(0, 3)} />
       <Categories />
       <AboutCard />
     </main>
@@ -66,9 +67,10 @@ export const query = graphql`
         }
       }
     }
-    featured: allStrapiProducts(filter: { slug: { ne: $slug } }, limit: 3) {
+    featured: allStrapiProducts(filter: { slug: { ne: $slug } }) {
       nodes {
         name
+        new
         slug
         image {
           localFile {

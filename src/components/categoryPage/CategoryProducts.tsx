@@ -1,6 +1,7 @@
 import React, { FC } from "react"
 import styled from "styled-components"
 import { CategoryProduct } from "../../../types"
+import { sortProducts } from "../../utils/helpers"
 import Product from "./Product"
 
 interface CategoryProductsProps {
@@ -8,9 +9,7 @@ interface CategoryProductsProps {
 }
 
 const CategoryProducts: FC<CategoryProductsProps> = ({ products }) => {
-  const productsOrder = products.sort((a, b) =>
-    a.new === b.new ? 0 : a.new ? -1 : 1
-  )
+  const productsOrder = sortProducts(products)
 
   return (
     <Wrapper className="section">
