@@ -5,6 +5,8 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import { AiOutlineShoppingCart } from "react-icons/ai"
 import NavLinks from "./NavLinks"
 import { Link } from "gatsby"
+import Cart from "./Cart"
+import { CSSTransition } from "react-transition-group"
 
 interface NavbarProps {
   isCartOpen: boolean
@@ -29,6 +31,14 @@ const Navbar: FC<NavbarProps> = ({ isCartOpen, setIsCartOpen }) => {
         <button className="cart" onClick={() => setIsCartOpen(!isCartOpen)}>
           <AiOutlineShoppingCart />
         </button>
+        <CSSTransition
+          timeout={300}
+          in={isCartOpen}
+          classNames="cart"
+          unmountOnExit
+        >
+          <Cart />
+        </CSSTransition>
       </nav>
     </Wrapper>
   )
@@ -45,7 +55,10 @@ const Wrapper = styled.div`
     place-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     height: var(--nav-height);
-    padding: 2rem 1.5rem;
+    padding: 2rem 0;
+    width: 90vw;
+    margin: 0 auto;
+    position: relative;
     img {
       display: block;
     }

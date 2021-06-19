@@ -28,12 +28,10 @@ const Wrapper = styled.article`
   place-items: center;
   .link {
     padding-bottom: 2rem;
-    z-index: 10;
   }
   .img {
     width: 40%;
     max-width: 12rem;
-    z-index: 10;
   }
   ::before {
     content: "";
@@ -44,6 +42,7 @@ const Wrapper = styled.article`
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: -1;
   }
   a {
     display: flex;

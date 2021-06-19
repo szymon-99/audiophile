@@ -177,7 +177,7 @@ text-transform: uppercase;
   }
 }
 /* ==========
-TRANSITIONS
+ CSS TRANSITION GROUP
 ============= */
 
 .cart-enter{

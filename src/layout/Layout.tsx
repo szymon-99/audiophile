@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
-import Cart from "./Cart"
 import { CSSTransition } from "react-transition-group"
+import Background from "./Background"
 
 const Layout: FC = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false)
@@ -11,12 +11,12 @@ const Layout: FC = ({ children }) => {
       <Navbar isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
       {children}
       <CSSTransition
-        timeout={600}
+        timeout={300}
         in={isCartOpen}
         classNames="cart"
         unmountOnExit
       >
-        <Cart />
+        <Background />
       </CSSTransition>
       <Footer />
     </>
