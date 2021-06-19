@@ -1,6 +1,6 @@
 import React from "react"
 import { GlobalStyle } from "./src/styles/GlobalStyle"
-import { Layout } from "./src/layout"
+import { Layout, LayoutProvider } from "./src/layout"
 
 export const pageWrapper = ({ element }) => {
   return (
@@ -9,4 +9,8 @@ export const pageWrapper = ({ element }) => {
       {element}
     </Layout>
   )
+}
+
+export const rootWrapper = ({ element }) => {
+  return <LayoutProvider>{element}</LayoutProvider>
 }

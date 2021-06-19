@@ -7,14 +7,15 @@ import NavLinks from "./NavLinks"
 import { Link } from "gatsby"
 import Cart from "./Cart"
 import { CSSTransition } from "react-transition-group"
+import { useLayoutContext } from "./context"
 
-interface NavbarProps {
-  isCartOpen: boolean
-  setIsCartOpen: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-const Navbar: FC<NavbarProps> = ({ isCartOpen, setIsCartOpen }) => {
-  const [isNavOpen, setIsNavOpen] = useState(false)
+const Navbar: FC = () => {
+  const {
+    isCartOpen,
+    isNavOpen,
+    setIsNavOpen,
+    setIsCartOpen,
+  } = useLayoutContext()
 
   return (
     <Wrapper>
@@ -43,6 +44,42 @@ const Navbar: FC<NavbarProps> = ({ isCartOpen, setIsCartOpen }) => {
     </Wrapper>
   )
 }
+
+// interface NavbarProps {
+//   isCartOpen: boolean
+//   setIsCartOpen: React.Dispatch<React.SetStateAction<boolean>>
+// }
+
+// const Navbar: FC<NavbarProps> = ({ isCartOpen, setIsCartOpen }) => {
+//   const [isNavOpen, setIsNavOpen] = useState(false)
+
+//   return (
+//     <Wrapper>
+//       <nav className="tablet-section">
+//         <button className="burger" onClick={() => setIsNavOpen(!isNavOpen)}>
+//           <GiHamburgerMenu />
+//         </button>
+//         <div className="logo">
+//           <Link to="/">
+//             <img src={logo} alt="audiophile" />
+//           </Link>
+//         </div>
+//         <NavLinks />
+//         <button className="cart" onClick={() => setIsCartOpen(!isCartOpen)}>
+//           <AiOutlineShoppingCart />
+//         </button>
+//         <CSSTransition
+//           timeout={300}
+//           in={isCartOpen}
+//           classNames="cart"
+//           unmountOnExit
+//         >
+//           <Cart />
+//         </CSSTransition>
+//       </nav>
+//     </Wrapper>
+//   )
+// }
 
 const Wrapper = styled.div`
   background-color: var(--black);

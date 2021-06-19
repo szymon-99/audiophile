@@ -1,2 +1,3 @@
 import Layout from "./Layout"
-export { Layout }
+import LayoutProvider from "./context"
+export { Layout, LayoutProvider }

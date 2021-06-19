@@ -3,12 +3,13 @@ import Navbar from "./Navbar"
 import Footer from "./Footer"
 import { CSSTransition } from "react-transition-group"
 import Background from "./Background"
+import { useLayoutContext } from "./context"
 
 const Layout: FC = ({ children }) => {
-  const [isCartOpen, setIsCartOpen] = useState(false)
+  const { isCartOpen } = useLayoutContext()
   return (
     <>
-      <Navbar isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
+      <Navbar />
       {children}
       <CSSTransition
         timeout={300}
