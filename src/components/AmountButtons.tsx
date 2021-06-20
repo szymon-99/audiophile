@@ -1,20 +1,29 @@
-import React, { FC, useState } from "react"
+import React, { FC } from "react"
 import styled from "styled-components"
 
-const AmountButtons: FC = () => {
-  const [amount, setAmount] = useState(1)
+interface AmountButtonsProps {
+  amount: number
+  increase: () => void
+  decrease: () => void
+  productButtons?: true
+}
 
+const AmountButtons: FC<AmountButtonsProps> = ({
+  amount,
+  increase,
+  decrease,
+  productButtons,
+}) => {
   return (
     <Wrapper>
       <button
-        className={amount === 1 ? "disabled" : undefined}
-        disabled={amount === 1}
-        onClick={() => setAmount(prev => prev - 1)}
+        className={productButtons && amount === 1 ? "disabled" : undefined}
+        onClick={() => decrease()}
       >
         <span>-</span>
       </button>
-      <div className="amount">{amount}</div>
-      <button onClick={() => setAmount(prev => prev + 1)}>
+      <div style={productButtons && { width: "2.5rem" }}>{amount}</div>
+      <button onClick={() => increase()}>
         <span>+</span>
       </button>
     </Wrapper>
@@ -23,21 +32,25 @@ const AmountButtons: FC = () => {
 
 const Wrapper = styled.div`
   display: flex;
+  align-items: center;
+  background: var(--gray);
   button,
-  .amount {
-    background: var(--gray);
-    padding: 1rem;
+  div {
     font-weight: var(--bold);
   }
-  .amount {
-    width: 2.5rem;
+  div {
+    width: 1.5rem;
+    text-align: center;
   }
+
   button {
+    padding: 0.5rem 1rem;
     border: none;
     transition: var(--transition);
     cursor: pointer;
     span {
       opacity: 25%;
+      font-size: 1rem;
     }
     :hover {
       span {

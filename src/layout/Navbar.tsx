@@ -25,7 +25,10 @@ const Navbar: FC = () => {
           </Link>
         </div>
         <NavLinks />
-        <button className="cart" onClick={() => toggleCart()}>
+        <button
+          className={`${isCartOpen ? "cart disabled" : "cart"}`}
+          onClick={() => toggleCart()}
+        >
           <AiOutlineShoppingCart />
         </button>
         <CSSTransition
@@ -40,42 +43,6 @@ const Navbar: FC = () => {
     </Wrapper>
   )
 }
-
-// const Navbar: FC = () => {
-//   const {
-//     isCartOpen,
-//     isNavOpen,
-//     setIsNavOpen,
-//     setIsCartOpen,
-//   } = useLayoutContext()
-
-//   return (
-//     <Wrapper>
-//       <nav className="tablet-section">
-//         <button className="burger" onClick={() => setIsNavOpen(!isNavOpen)}>
-//           <GiHamburgerMenu />
-//         </button>
-//         <div className="logo">
-//           <Link to="/">
-//             <img src={logo} alt="audiophile" />
-//           </Link>
-//         </div>
-//         <NavLinks />
-//         <button className="cart" onClick={() => setIsCartOpen(!isCartOpen)}>
-//           <AiOutlineShoppingCart />
-//         </button>
-//         <CSSTransition
-//           timeout={300}
-//           in={isCartOpen}
-//           classNames="cart"
-//           unmountOnExit
-//         >
-//           <Cart />
-//         </CSSTransition>
-//       </nav>
-//     </Wrapper>
-//   )
-// }
 
 const Wrapper = styled.div`
   background-color: var(--black);
@@ -102,9 +69,19 @@ const Wrapper = styled.div`
       cursor: pointer;
       background: transparent;
       border: none;
+      display: flex;
+      align-items: center;
+    }
+    .cart.disabled {
+      pointer-events: none;
     }
     .menu {
       display: none;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
     }
   }
 

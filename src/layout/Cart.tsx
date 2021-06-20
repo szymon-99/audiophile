@@ -1,30 +1,68 @@
-import React, { FC } from "react"
+import React, { FC, useRef, useEffect } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import { useActions, useTypedSelector } from "../hooks"
+import { formatPrice } from "../utils/helpers"
+import { CartItem } from "../components"
 
 const Cart: FC = () => {
+  const cartRef = useRef<HTMLDivElement>(null)
+  const { toggleCart, countTotals, clearCart } = useActions()
+  const { products, totalAmount, totalPrice } = useTypedSelector(
+    store => store.cart
+  )
+
+  const handleClickOutside = (e: MouseEvent) => {
+    const target = e.target as Element
+    if (cartRef.current && !cartRef.current.contains(target)) {
+      toggleCart()
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("mousedown", handleClickOutside)
+    return () => window.removeEventListener("mousedown", handleClickOutside)
+  }, [])
+
+  useEffect(() => {
+    countTotals()
+  }, [products])
+
   return (
-    <CartWrapper>
+    <CartWrapper ref={cartRef}>
       <div className="title">
-        <h3>Cart (3)</h3> <p>remove all</p>
+        <h6>Cart ({totalAmount})</h6>
+        <button className="remove" onClick={clearCart}>
+          Remove all
+        </button>
+      </div>
+      <div className="products">
+        {products.map(item => (
+          <CartItem key={item.id} {...item} />
+        ))}
       </div>
       <div className="total">
-        <h3>total</h3> <p>$512</p>
+        <h6>total</h6>
+        <h6>{formatPrice(totalPrice)}</h6>
       </div>
-      <Link to="/checkout" className="btn" style={{ textAlign: "center" }}>
-        checkout
+      <Link
+        to="/checkout"
+        className={products.length ? "btn" : "btn disabled"}
+        style={{ textAlign: "center" }}
+      >
+        {products.length ? "checkout" : "cart is empty"}
       </Link>
     </CartWrapper>
   )
 }
 
-const CartWrapper = styled.aside`
+const CartWrapper = styled.div`
   position: absolute;
   top: calc(var(--nav-height) + 1.5rem);
   right: 0;
   background-color: var(--white);
   width: 90vw;
-  height: 50vh;
+  height: 30rem;
   border-radius: var(--radius);
   padding: 2rem;
   display: flex;
@@ -35,6 +73,41 @@ const CartWrapper = styled.aside`
   .total {
     display: flex;
     justify-content: space-between;
+  }
+  .total {
+    h6 {
+      :first-of-type {
+        opacity: 50%;
+        letter-spacing: 0;
+        font-weight: var(--light);
+        font-size: 0.93rem;
+      }
+    }
+  }
+  .disabled {
+    opacity: 50%;
+    pointer-events: none;
+  }
+
+  .remove {
+    line-height: 1.125rem;
+    letter-spacing: 0.0625rem;
+    transition: var(--transition);
+    font-size: 0.9375rem;
+    color: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    :hover {
+      color: var(--peach);
+    }
+  }
+  .products {
+    display: grid;
+    align-items: start;
+    height: 15rem;
+    grid-gap: 1.5rem;
+    overflow: scroll;
   }
 
   @media screen and (min-width: 768px) {

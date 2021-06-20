@@ -1,9 +1,10 @@
-import React, { FC } from "react"
+import React, { FC, useState } from "react"
 import styled from "styled-components"
 import { IProduct } from "../../../types"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import AmountButtons from "../AmountButtons"
 import { formatPrice } from "../../utils/helpers"
+import { useActions } from "../../hooks"
 
 interface ProductProps {
   product: IProduct
@@ -12,6 +13,21 @@ interface ProductProps {
 const Product: FC<ProductProps> = ({ product }) => {
   const { name, new: newProduct, type, description, price, image } = product
   const imageData = getImage(image.localFile)
+  const { addToCart } = useActions()
+  const [amount, setAmount] = useState(1)
+
+  const increase = () => {
+    setAmount(prev => prev + 1)
+  }
+  const decrease = () => {
+    setAmount(prev => {
+      let moreThanZero = prev - 1
+      if (moreThanZero < 1) {
+        moreThanZero = 1
+      }
+      return moreThanZero
+    })
+  }
 
   return (
     <Wrapper className="section">
@@ -28,8 +44,15 @@ const Product: FC<ProductProps> = ({ product }) => {
           <p className="desc">{description}</p>
           <h6>{formatPrice(price)}</h6>
           <div className="buttons">
-            <AmountButtons />
-            <button className="btn">Add to cart</button>
+            <AmountButtons
+              amount={amount}
+              increase={increase}
+              decrease={decrease}
+              productButtons
+            />
+            <button className="btn" onClick={() => addToCart(amount, product)}>
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
@@ -38,7 +61,7 @@ const Product: FC<ProductProps> = ({ product }) => {
 }
 
 const Wrapper = styled.section`
-  margin-top: 4rem;
+  margin-top: 4rem !important;
   display: grid;
   grid-gap: 2rem;
   .img {
@@ -46,6 +69,7 @@ const Wrapper = styled.section`
   }
   .buttons {
     display: flex;
+    height: 3rem;
     .btn {
       margin-left: 1rem;
     }
@@ -62,7 +86,7 @@ const Wrapper = styled.section`
     opacity: 50%;
   }
   @media screen and (min-width: 768px) {
-    margin-top: 5.125rem;
+    margin-top: 5.125rem !important;
     grid-template-columns: 1fr 50vw;
     grid-template-rows: 30rem;
     grid-gap: 4rem;
@@ -74,7 +98,7 @@ const Wrapper = styled.section`
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 35rem;
     grid-gap: initial;
-    margin-top: 10rem;
+    margin-top: 10rem !important;
     .info {
       margin-left: 10vw;
     }

@@ -32,7 +32,6 @@ body{
   color:var(--black);
   font-size:0.9375rem;
   line-height: 25px;
-  font-weight: var(--light);
 }
 ul{
   list-style:none;

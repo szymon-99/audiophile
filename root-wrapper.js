@@ -1,6 +1,6 @@
 import React from "react"
 import { GlobalStyle } from "./src/styles/GlobalStyle"
-import { Layout } from "./src/layout"
+import Layout from "./src/layout"
 import { Provider } from "react-redux"
 import { store } from "./src/state"
 

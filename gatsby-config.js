@@ -29,15 +29,6 @@ module.exports = {
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
-    // {
-    //   resolve: `gatsby-source-stripe`,
-    //   options: {
-    //     objects: ["Price"],
-    //     secretKey: process.env.STRIPE_SECRET_KEY,
-    //     downloadFiles: false,
-    //   },
-    // },
-    // {
     {
       resolve: `gatsby-plugin-webfonts`,
       options: {

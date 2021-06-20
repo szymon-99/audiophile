@@ -69,8 +69,6 @@ const reducer = (state = initialState, action: Action): CartState => {
         tempAmount = amount + 1
       } else {
         tempAmount = amount - 1
-        //need to handle when amount === 0
-        // if(tempAmount === 0) return
       }
       return { ...item, amount: tempAmount }
     })
