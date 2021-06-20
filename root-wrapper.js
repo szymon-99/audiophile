@@ -1,6 +1,8 @@
 import React from "react"
 import { GlobalStyle } from "./src/styles/GlobalStyle"
-import { Layout, LayoutProvider } from "./src/layout"
+import { Layout } from "./src/layout"
+import { Provider } from "react-redux"
+import { store } from "./src/state"
 
 export const pageWrapper = ({ element }) => {
   return (
@@ -12,5 +14,5 @@ export const pageWrapper = ({ element }) => {
 }
 
 export const rootWrapper = ({ element }) => {
-  return <LayoutProvider>{element}</LayoutProvider>
+  return <Provider store={store}>{element}</Provider>
 }

@@ -11,6 +11,14 @@ type IncludedItem = {
 type FeatureDescription = {
   desc: string
 }
+export interface CartProduct {
+  name: string
+  image: Image
+  id: string
+  price: number
+  amount: number
+}
+
 export interface CategoryProduct {
   name: string
   type: string

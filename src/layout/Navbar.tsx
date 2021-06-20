@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react"
+import React, { FC } from "react"
 import styled from "styled-components"
 import logo from "../images/logo.svg"
 import { GiHamburgerMenu } from "react-icons/gi"
@@ -7,20 +7,16 @@ import NavLinks from "./NavLinks"
 import { Link } from "gatsby"
 import Cart from "./Cart"
 import { CSSTransition } from "react-transition-group"
-import { useLayoutContext } from "./context"
+import { useActions, useTypedSelector } from "../hooks"
 
 const Navbar: FC = () => {
-  const {
-    isCartOpen,
-    isNavOpen,
-    setIsNavOpen,
-    setIsCartOpen,
-  } = useLayoutContext()
+  const { toggleCart, toggleSidebar } = useActions()
+  const { isCartOpen } = useTypedSelector(store => store.layout)
 
   return (
     <Wrapper>
       <nav className="tablet-section">
-        <button className="burger" onClick={() => setIsNavOpen(!isNavOpen)}>
+        <button className="burger" onClick={() => toggleSidebar()}>
           <GiHamburgerMenu />
         </button>
         <div className="logo">
@@ -29,7 +25,7 @@ const Navbar: FC = () => {
           </Link>
         </div>
         <NavLinks />
-        <button className="cart" onClick={() => setIsCartOpen(!isCartOpen)}>
+        <button className="cart" onClick={() => toggleCart()}>
           <AiOutlineShoppingCart />
         </button>
         <CSSTransition
@@ -45,13 +41,13 @@ const Navbar: FC = () => {
   )
 }
 
-// interface NavbarProps {
-//   isCartOpen: boolean
-//   setIsCartOpen: React.Dispatch<React.SetStateAction<boolean>>
-// }
-
-// const Navbar: FC<NavbarProps> = ({ isCartOpen, setIsCartOpen }) => {
-//   const [isNavOpen, setIsNavOpen] = useState(false)
+// const Navbar: FC = () => {
+//   const {
+//     isCartOpen,
+//     isNavOpen,
+//     setIsNavOpen,
+//     setIsCartOpen,
+//   } = useLayoutContext()
 
 //   return (
 //     <Wrapper>

@@ -1,12 +1,12 @@
-import React, { FC, useState } from "react"
+import React, { FC } from "react"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import { CSSTransition } from "react-transition-group"
 import Background from "./Background"
-import { useLayoutContext } from "./context"
+import { useTypedSelector } from "../hooks/useTypedSelector"
 
 const Layout: FC = ({ children }) => {
-  const { isCartOpen } = useLayoutContext()
+  const { isCartOpen } = useTypedSelector(store => store.layout)
   return (
     <>
       <Navbar />
