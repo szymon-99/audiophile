@@ -1,17 +1,24 @@
 import React, { FC } from "react"
 import styled from "styled-components"
-import { ReturnButton, CheckoutForm } from "../components"
+import { ReturnButton, CheckoutForm, CheckoutCart } from "../components"
 
 const Checkout: FC = () => {
   return (
-    <Wrapper>
+    <div style={{ background: "var(--gray)" }}>
       <ReturnButton />
-      <CheckoutForm />
-    </Wrapper>
+      <Wrapper>
+        <CheckoutForm />
+        <CheckoutCart />
+      </Wrapper>
+    </div>
   )
 }
 
-const Wrapper = styled.div`
-  background-color: var(--gray);
+const Wrapper = styled.main`
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 2rem;
 `
 export default Checkout

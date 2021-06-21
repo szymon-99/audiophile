@@ -1,3 +1,3 @@
 import CheckoutForm from "./CheckoutForm"
-
-export { CheckoutForm }
+import CheckoutCart from "./CheckoutCart"
+export { CheckoutForm, CheckoutCart }
