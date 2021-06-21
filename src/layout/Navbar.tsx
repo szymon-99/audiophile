@@ -12,6 +12,7 @@ import { useActions, useTypedSelector } from "../hooks"
 const Navbar: FC = () => {
   const { toggleCart, toggleSidebar } = useActions()
   const { isCartOpen } = useTypedSelector(store => store.layout)
+  const { totalAmount } = useTypedSelector(store => store.cart)
 
   return (
     <Wrapper>
@@ -29,6 +30,12 @@ const Navbar: FC = () => {
           className={`${isCartOpen ? "cart disabled" : "cart"}`}
           onClick={() => toggleCart()}
         >
+          <span
+            className="amount"
+            style={totalAmount === 0 ? { opacity: "0" } : undefined}
+          >
+            {totalAmount}
+          </span>
           <AiOutlineShoppingCart />
         </button>
         <CSSTransition
@@ -65,15 +72,32 @@ const Wrapper = styled.div`
     .burger,
     .cart {
       color: var(--white);
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       cursor: pointer;
       background: transparent;
       border: none;
       display: flex;
       align-items: center;
     }
+    .cart {
+      position: relative;
+    }
     .cart.disabled {
       pointer-events: none;
+    }
+    .amount {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      z-index: -1;
+      top: -50%;
+      right: -50%;
+      font-size: 0.9rem;
+      background-color: var(--peach);
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      transition: var(--transition);
     }
     .menu {
       display: none;

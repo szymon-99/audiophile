@@ -7,7 +7,7 @@ import { CartItem } from "../components"
 
 const Cart: FC = () => {
   const cartRef = useRef<HTMLDivElement>(null)
-  const { toggleCart, countTotals, clearCart } = useActions()
+  const { toggleCart, clearCart, countTotals } = useActions()
   const { products, totalAmount, totalPrice } = useTypedSelector(
     store => store.cart
   )
@@ -49,6 +49,7 @@ const Cart: FC = () => {
         to="/checkout"
         className={products.length ? "btn" : "btn disabled"}
         style={{ textAlign: "center" }}
+        onClick={() => toggleCart()}
       >
         {products.length ? "checkout" : "cart is empty"}
       </Link>

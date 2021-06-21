@@ -7,6 +7,7 @@ import {
   Gallery,
   Product,
   ProductInfo,
+  ReturnButton,
 } from "../components"
 import { FeaturedProduct, IProduct } from "../../types"
 import { sortProducts } from "../utils/helpers"
@@ -25,6 +26,7 @@ const ProductPage: FC<ProductProps> = ({ data }) => {
   const { included, gallery, features } = product
   return (
     <main>
+      <ReturnButton />
       <Product product={product} />
       <ProductInfo info={{ features, included }} />
       <Gallery images={gallery} />

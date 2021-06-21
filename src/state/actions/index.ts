@@ -40,6 +40,12 @@ export interface ToggleCartAction {
 export interface ToggleSidebarAction {
   type: ActionType.TOGGLE_SIDEBAR
 }
+export interface OpenModalAction {
+  type: ActionType.OPEN_MODAL
+}
+export interface CloseModalAction {
+  type: ActionType.CLOSE_MODAL
+}
 
 export type Action =
   | AddToCartAction
@@ -49,3 +55,5 @@ export type Action =
   | CountCartTotalsAction
   | ToggleCartAction
   | ToggleSidebarAction
+  | OpenModalAction
+  | CloseModalAction

@@ -19,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
 --max-width:1100px;
 --tablet:768px;
 --nav-height:6.125rem;
+--shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 *,
 ::after,
