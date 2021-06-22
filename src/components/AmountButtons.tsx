@@ -15,14 +15,14 @@ const AmountButtons: FC<AmountButtonsProps> = ({
   productButtons,
 }) => {
   return (
-    <Wrapper>
+    <Wrapper style={{ width: `${productButtons ? "7.5rem" : "auto"}` }}>
       <button
         className={productButtons && amount === 1 ? "disabled" : undefined}
         onClick={() => decrease()}
       >
         <span>-</span>
       </button>
-      <div style={productButtons && { width: "2.5rem" }}>{amount}</div>
+      <div>{amount}</div>
       <button onClick={() => increase()}>
         <span>+</span>
       </button>
@@ -31,23 +31,23 @@ const AmountButtons: FC<AmountButtonsProps> = ({
 }
 
 const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
   background: var(--gray);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
   button,
   div {
     font-weight: var(--bold);
-  }
-  div {
-    width: 1.5rem;
-    text-align: center;
+    padding: 0.2rem 0;
+    display: grid;
+    place-items: center;
   }
 
   button {
-    padding: 0.5rem 1rem;
     border: none;
     transition: var(--transition);
     cursor: pointer;
+    background: inherit;
     span {
       opacity: 25%;
       font-size: 1rem;
@@ -63,5 +63,4 @@ const Wrapper = styled.div`
     pointer-events: none;
   }
 `
-
 export default AmountButtons

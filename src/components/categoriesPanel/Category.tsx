@@ -71,7 +71,7 @@ const Wrapper = styled.article`
     }
   }
   @media screen and (min-width: 992px) {
-    ::after {
+    ::before {
       height: 12.75rem;
     }
   }

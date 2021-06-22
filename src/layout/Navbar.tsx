@@ -90,8 +90,8 @@ const Wrapper = styled.div`
       display: grid;
       place-items: center;
       z-index: -1;
-      top: -50%;
-      right: -50%;
+      top: -60%;
+      right: -40%;
       font-size: 0.9rem;
       background-color: var(--peach);
       width: 1.8rem;
@@ -111,7 +111,7 @@ const Wrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     nav {
-      place-items: initial;
+      justify-items: flex-start;
       padding: 2rem 0;
       .logo {
         margin-left: 2rem;

@@ -65,7 +65,7 @@ const CartWrapper = styled.div`
   width: 90vw;
   height: 30rem;
   border-radius: var(--radius);
-  padding: 2rem;
+  padding: 1.5rem;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -113,6 +113,7 @@ const CartWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     max-width: 23.56rem;
+    padding: 2rem;
   }
 `
 

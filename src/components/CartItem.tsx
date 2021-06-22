@@ -37,7 +37,7 @@ const CartItem: FC<CartProduct> = ({ id, image, name, price, amount }) => {
 const Wrapper = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr 25%;
   .img {
     height: 4rem;
     width: 4rem;
@@ -53,6 +53,9 @@ const Wrapper = styled.div`
         font-size: 0.9rem;
       }
     }
+  }
+  @media screen and (min-width: 768px) {
+    grid-template-columns: auto 1fr 30%;
   }
 `
 
