@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import styled from "styled-components"
-import { ReturnButton, CheckoutForm, CheckoutCart } from "../components"
+import { ReturnButton, CheckoutForm } from "../components"
 import { useTypedSelector } from "../hooks"
 
 const Checkout: FC = () => {
@@ -13,7 +13,6 @@ const Checkout: FC = () => {
       <ReturnButton />
       <Wrapper>
         <CheckoutForm />
-        <CheckoutCart />
       </Wrapper>
     </div>
   )
@@ -23,7 +22,5 @@ const Wrapper = styled.main`
   width: 90vw;
   max-width: var(--max-width);
   margin: 0 auto;
-  display: grid;
-  grid-gap: 2rem;
 `
 export default Checkout

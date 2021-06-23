@@ -1,10 +1,10 @@
 import AboutCard from "./AboutCard"
 import HomeHero from "./HomeHero"
-import CartItem from "./CartItem"
 import ReturnButton from "./ReturnButton"
+import CartProducts from "./CartProducts"
 export * from "./homePanel"
 export * from "./categoriesPanel"
 export * from "./categoryPage"
 export * from "./productPage"
 export * from "./checkout"
-export { AboutCard, HomeHero, CartItem, ReturnButton }
+export { AboutCard, HomeHero, CartProducts, ReturnButton }

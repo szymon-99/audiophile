@@ -6,7 +6,14 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { formatPrice } from "../utils/helpers"
 import { useActions } from "../hooks"
 
-const CartItem: FC<CartProduct> = ({ id, image, name, price, amount }) => {
+const CartItem: FC<CartProduct & { checkout?: true }> = ({
+  id,
+  image,
+  name,
+  price,
+  amount,
+  checkout,
+}) => {
   const imageData = getImage(image.localFile)
   const { toggleAmount, removeCartItem } = useActions()
 
@@ -29,7 +36,17 @@ const CartItem: FC<CartProduct> = ({ id, image, name, price, amount }) => {
         <p>{name}</p>
         <p>{formatPrice(price)}</p>
       </div>
-      <AmountButtons amount={amount} increase={increase} decrease={decrease} />
+      {checkout ? (
+        <div className="amount">
+          <span>{amount}x</span>
+        </div>
+      ) : (
+        <AmountButtons
+          amount={amount}
+          increase={increase}
+          decrease={decrease}
+        />
+      )}
     </Wrapper>
   )
 }
@@ -53,6 +70,11 @@ const Wrapper = styled.div`
         font-size: 0.9rem;
       }
     }
+  }
+  .amount {
+    justify-self: flex-end;
+    opacity: 50%;
+    font-weight: var(--bold);
   }
   @media screen and (min-width: 768px) {
     grid-template-columns: auto 1fr 30%;

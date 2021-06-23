@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import { useActions, useTypedSelector } from "../hooks"
 import { formatPrice } from "../utils/helpers"
-import { CartItem } from "../components"
+import { CartProducts } from "../components"
 
 const Cart: FC = () => {
   const cartRef = useRef<HTMLDivElement>(null)
@@ -36,11 +36,7 @@ const Cart: FC = () => {
           Remove all
         </button>
       </div>
-      <div className="products">
-        {products.map(item => (
-          <CartItem key={item.id} {...item} />
-        ))}
-      </div>
+      <CartProducts products={products} />
       <div className="total">
         <h6>total</h6>
         <h6>{formatPrice(totalPrice)}</h6>
@@ -48,7 +44,6 @@ const Cart: FC = () => {
       <Link
         to="/checkout"
         className={products.length ? "btn" : "btn disabled"}
-        style={{ textAlign: "center" }}
         onClick={() => toggleCart()}
       >
         {products.length ? "checkout" : "cart is empty"}
@@ -103,14 +98,6 @@ const CartWrapper = styled.div`
       color: var(--peach);
     }
   }
-  .products {
-    display: grid;
-    align-items: start;
-    height: 15rem;
-    grid-gap: 1.5rem;
-    overflow: scroll;
-  }
-
   @media screen and (min-width: 768px) {
     max-width: 23.56rem;
     padding: 2rem;

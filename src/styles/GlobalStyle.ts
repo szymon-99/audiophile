@@ -146,6 +146,7 @@ text-transform: uppercase;
   text-transform: uppercase;
   border:none;
   cursor: pointer;
+  text-align: center;
   padding: 1rem 2rem;
   color: var(--white);
   background-color: var(--peach);
