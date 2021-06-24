@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { useActions, useTypedSelector } from "../hooks"
 import { formatPrice } from "../utils/helpers"
 import { CartProducts } from "../components"
+import { handleClickOutside } from "../utils/helpers"
 
 const Cart: FC = () => {
   const cartRef = useRef<HTMLDivElement>(null)
@@ -11,17 +12,14 @@ const Cart: FC = () => {
   const { products, totalAmount, totalPrice } = useTypedSelector(
     store => store.cart
   )
-
-  const handleClickOutside = (e: MouseEvent) => {
-    const target = e.target as Element
-    if (cartRef.current && !cartRef.current.contains(target)) {
-      toggleCart()
-    }
-  }
-
   useEffect(() => {
-    window.addEventListener("mousedown", handleClickOutside)
-    return () => window.removeEventListener("mousedown", handleClickOutside)
+    window.addEventListener("mousedown", e =>
+      handleClickOutside(e, toggleCart, cartRef)
+    )
+    return () =>
+      window.removeEventListener("mousedown", e =>
+        handleClickOutside(e, toggleCart, cartRef)
+      )
   }, [])
 
   useEffect(() => {

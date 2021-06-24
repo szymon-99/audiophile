@@ -41,7 +41,7 @@ const Navbar: FC = () => {
         <CSSTransition
           timeout={300}
           in={isCartOpen}
-          classNames="cart"
+          classNames="show"
           unmountOnExit
         >
           <Cart />
