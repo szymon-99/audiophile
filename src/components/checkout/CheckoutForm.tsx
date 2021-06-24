@@ -1,10 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import { Formik, Form } from "formik"
+import { Formik, Form, Field } from "formik"
 import * as Yup from "yup"
 import CheckoutCart from "./CheckoutCart"
 import { navigate } from "@reach/router"
 import TextInput from "./TextInput"
+import RadioButtons from "./RadioButtons"
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
@@ -95,6 +96,7 @@ const CheckoutForm = () => {
           </div>
           <div className="details">
             <p className="title">payment details</p>
+            <RadioButtons />
           </div>
         </div>
         <CheckoutCart />

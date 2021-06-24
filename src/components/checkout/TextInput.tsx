@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   input {
     padding: 1rem 1.5rem;
     border-radius: var(--radius);
-    border: 1px solid #cfcfcf;
+    border: 1px solid var(--gray-2);
     width: 100%;
     outline: none;
     :focus {
