@@ -1,5 +1,5 @@
 import { IProduct } from "../../../types"
-import { ActionType } from "../action-types"
+import { CartActionType } from "../action-types"
 import {
   AddToCartAction,
   RemoveCartItemAction,
@@ -14,7 +14,7 @@ export const addToCart = (
   product: IProduct
 ): AddToCartAction => {
   return {
-    type: ActionType.ADD_TO_CART,
+    type: CartActionType.ADD_TO_CART,
     payload: {
       product,
       amount,
@@ -24,7 +24,7 @@ export const addToCart = (
 
 export const removeCartItem = (id: string): RemoveCartItemAction => {
   return {
-    type: ActionType.REMOVE_CART_ITEM,
+    type: CartActionType.REMOVE_CART_ITEM,
     payload: {
       id,
     },
@@ -36,7 +36,7 @@ export const toggleAmount = (
   value: value
 ): ToggleCartItemAmountAction => {
   return {
-    type: ActionType.TOGGLE_CART_ITEM_AMOUNT,
+    type: CartActionType.TOGGLE_CART_ITEM_AMOUNT,
     payload: {
       id,
       value,
@@ -46,12 +46,12 @@ export const toggleAmount = (
 
 export const clearCart = (): ClearCartAction => {
   return {
-    type: ActionType.CLEAR_CART,
+    type: CartActionType.CLEAR_CART,
   }
 }
 
 export const countTotals = (): CountCartTotalsAction => {
   return {
-    type: ActionType.COUNT_CART_TOTALS,
+    type: CartActionType.COUNT_CART_TOTALS,
   }
 }

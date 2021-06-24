@@ -6,17 +6,17 @@ import { Link } from "gatsby"
 
 const Checkout: FC = () => {
   const { products } = useTypedSelector(store => store.cart)
-  if (!products.length) {
-    // need to handle option when cart is empty
-    return (
-      <main>
-        <h3>Sorry your cart is empty</h3>
-        <Link to="/" className="btn">
-          fill it
-        </Link>
-      </main>
-    )
-  }
+  // if (!products.length) {
+  //   // need to handle option when cart is empty
+  //   return (
+  //     <main>
+  //       <h3>Sorry your cart is empty</h3>
+  //       <Link to="/" className="btn">
+  //         fill it
+  //       </Link>
+  //     </main>
+  //   )
+  // }
   return (
     <div style={{ background: "var(--gray)" }}>
       <ReturnButton />

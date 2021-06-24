@@ -1,15 +1,18 @@
 import React from "react"
 import styled from "styled-components"
-import { Formik, Form, Field } from "formik"
+import { Formik, Form } from "formik"
 import * as Yup from "yup"
 import CheckoutCart from "./CheckoutCart"
-import { navigate } from "@reach/router"
 import TextInput from "./TextInput"
 import RadioButtons from "./RadioButtons"
+import { navigate } from "@reach/router"
+import { useActions, useTypedSelector } from "../../hooks"
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 const CheckoutForm = () => {
+  const { openSummary } = useActions()
+
   return (
     <Formik
       initialValues={{
@@ -32,12 +35,14 @@ const CheckoutForm = () => {
         zip: Yup.string().required("required"),
         city: Yup.string().required("required"),
         country: Yup.string().required("required"),
+        paymentMethod: Yup.string().required("Please select payment method"),
       })}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          console.log(values)
-          setSubmitting(false)
-        }, 3000)
+      onSubmit={values => {
+        if (values.paymentMethod === "stripe") {
+          navigate("/payments")
+        } else {
+          openSummary()
+        }
       }}
     >
       <StyledForm>

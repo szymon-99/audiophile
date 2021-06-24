@@ -1,29 +1,41 @@
-import { ActionType } from "../action-types"
+import { LayoutActionType } from "../action-types"
 import {
   ToggleCartAction,
   OpenModalAction,
   CloseModalAction,
   ToggleSidebarAction,
+  OpenSummaryAction,
+  CloseSummaryAction,
 } from "../actions"
 
 export const toggleCart = (): ToggleCartAction => {
-  return { type: ActionType.TOGGLE_CART }
+  return { type: LayoutActionType.TOGGLE_CART }
 }
 
 export const toggleSidebar = (): ToggleSidebarAction => {
   return {
-    type: ActionType.TOGGLE_SIDEBAR,
+    type: LayoutActionType.TOGGLE_SIDEBAR,
   }
 }
 
 export const openModal = (): OpenModalAction => {
   return {
-    type: ActionType.OPEN_MODAL,
+    type: LayoutActionType.OPEN_MODAL,
   }
 }
 
 export const closeModal = (): CloseModalAction => {
   return {
-    type: ActionType.CLOSE_MODAL,
+    type: LayoutActionType.CLOSE_MODAL,
+  }
+}
+export const openSummary = (): OpenSummaryAction => {
+  return {
+    type: LayoutActionType.OPEN_SUMMARY,
+  }
+}
+export const closeSummary = (): CloseSummaryAction => {
+  return {
+    type: LayoutActionType.CLOSE_SUMMARY,
   }
 }

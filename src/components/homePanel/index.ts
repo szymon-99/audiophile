@@ -1,2 +1,3 @@
 import HomePanel from "./Panel"
-export { HomePanel }
+import HomeHero from "./HomeHero"
+export { HomePanel, HomeHero }

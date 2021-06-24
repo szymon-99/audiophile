@@ -1,11 +1,10 @@
-import React from "react"
+import React, { FC } from "react"
 import styled from "styled-components"
 import { CartProducts } from "../"
 import { useTypedSelector } from "../../hooks"
 import { formatPrice } from "../../utils/helpers"
-import { Link } from "gatsby"
 
-const CheckoutCart = () => {
+const CheckoutCart: FC = () => {
   const { products, shipping, totalPrice } = useTypedSelector(
     state => state.cart
   )

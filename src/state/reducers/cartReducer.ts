@@ -1,5 +1,5 @@
-import { Action } from "../actions"
-import { ActionType } from "../action-types"
+import { CartAction } from "../actions"
+import { CartActionType } from "../action-types"
 import { CartProduct } from "../../../types"
 
 interface CartState {
@@ -16,11 +16,11 @@ const initialState: CartState = {
   shipping: 5000,
 }
 
-const reducer = (state = initialState, action: Action): CartState => {
-  if (action.type === ActionType.CLEAR_CART) {
+const reducer = (state = initialState, action: CartAction): CartState => {
+  if (action.type === CartActionType.CLEAR_CART) {
     return { ...state, products: [] }
   }
-  if (action.type === ActionType.ADD_TO_CART) {
+  if (action.type === CartActionType.ADD_TO_CART) {
     const { product, amount } = action.payload
     const isProductInCart = state.products.find(item => item.id === product.id)
     if (!isProductInCart) {
@@ -42,12 +42,12 @@ const reducer = (state = initialState, action: Action): CartState => {
     })
     return { ...state, products: updateProducts }
   }
-  if (action.type === ActionType.REMOVE_CART_ITEM) {
+  if (action.type === CartActionType.REMOVE_CART_ITEM) {
     const { id } = action.payload
     const updateProducts = state.products.filter(item => item.id !== id)
     return { ...state, products: updateProducts }
   }
-  if (action.type === ActionType.COUNT_CART_TOTALS) {
+  if (action.type === CartActionType.COUNT_CART_TOTALS) {
     const { totalAmount, totalPrice } = state.products.reduce(
       (total, cartItem) => {
         const { amount, price } = cartItem
@@ -59,7 +59,7 @@ const reducer = (state = initialState, action: Action): CartState => {
     )
     return { ...state, totalAmount, totalPrice }
   }
-  if (action.type === ActionType.TOGGLE_CART_ITEM_AMOUNT) {
+  if (action.type === CartActionType.TOGGLE_CART_ITEM_AMOUNT) {
     const { id, value } = action.payload
     const updateProducts = state.products.map(item => {
       if (item.id !== id) return item

@@ -2,9 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { graphql, useStaticQuery } from "gatsby"
-import mobile from "../images/homeHero/mobile.jpg"
-import desktop from "../images/homeHero/desktop.jpg"
-import tablet from "../images/homeHero/tablet.jpg"
+import mobile from "../../images/homeHero/mobile.jpg"
+import desktop from "../../images/homeHero/desktop.jpg"
+import tablet from "../../images/homeHero/tablet.jpg"
 
 interface HomeData {
   name: string

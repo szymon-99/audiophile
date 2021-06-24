@@ -122,7 +122,10 @@ text-transform: uppercase;
   }
 
   @media screen and (min-width:992px){
+    .section{
+
     margin:0 auto 10rem;
+    }
   }
 }
 
@@ -182,17 +185,17 @@ text-transform: uppercase;
  CSS TRANSITION GROUP
 ============= */
 
-.cart-enter{
+.show-enter{
   opacity:0;
 }
-.cart-enter-active {
+.show-enter-active {
   transition: var(--transition);
   opacity:1;
 }
-.cart-exit {
+.show-exit {
   opacity:1;
 }
-.cart-exit-active{
+.show-exit-active{
   opacity:0;
   transition: var(--transition);
 }

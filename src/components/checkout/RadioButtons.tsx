@@ -1,23 +1,29 @@
 import React, { FC } from "react"
 import styled from "styled-components"
-import { Field } from "formik"
+import { Field, ErrorMessage } from "formik"
 
 const RadioButtons: FC = () => {
   return (
     <Wrapper>
-      <span className="label">payment method</span>
+      <div className="label">
+        payment method
+        <ErrorMessage component={Error} name="paymentMethod" />
+      </div>
       <div className="buttons">
         <label htmlFor="paymentMethod">
-          <Field name="paymentMethod" value="e-Money" type="radio" />
-          e-Money
+          <Field name="paymentMethod" value="stripe" type="radio" />
+          Stripe
         </label>
         <label htmlFor="paymentMethod">
-          <Field name="paymentMethod" value="Cash on Delivery" type="radio" />
+          <Field name="paymentMethod" value="delivery" type="radio" />
           Cash on Delivery
         </label>
       </div>
     </Wrapper>
   )
+}
+const Error: FC = ({ children }) => {
+  return <p style={{ color: "var(--red)" }}>{children}</p>
 }
 
 const Wrapper = styled.div`
