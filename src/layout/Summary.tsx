@@ -58,10 +58,10 @@ const Wrapper = styled.div`
   width: 90vw;
   max-width: 33.75rem;
   padding: 2rem;
-  top: calc(var(--nav-height) + 2rem);
+  top: 50%;
   left: 50%;
-  z-index: 5;
-  transform: translateX(-50%);
+  z-index: 100;
+  transform: translate(-50%, -50%);
   display: grid;
   grid-gap: 1rem;
   .icon {
@@ -117,6 +117,8 @@ const Wrapper = styled.div`
     }
   }
   @media screen and (min-width: 768px) {
+    top: calc(var(--nav-height) + 2rem);
+    transform: translate(-50%, 0);
     grid-gap: 2rem;
   }
 `

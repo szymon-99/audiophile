@@ -15,6 +15,7 @@ const Layout: FC = ({ children }) => {
   )
   const { products } = useTypedSelector(store => store.cart)
   const { closeModal, countTotals } = useActions()
+
   useEffect(() => {
     const show = setTimeout(() => {
       closeModal()

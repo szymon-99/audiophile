@@ -5,7 +5,6 @@ import * as Yup from "yup"
 import CheckoutCart from "./CheckoutCart"
 import TextInput from "./TextInput"
 import RadioButtons from "./RadioButtons"
-import { navigate } from "@reach/router"
 import { useActions } from "../../hooks"
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
@@ -38,11 +37,6 @@ const CheckoutForm = () => {
         paymentMethod: Yup.string().required("Please select payment method"),
       })}
       onSubmit={values => {
-        // if (values.paymentMethod === "stripe") {
-        //   navigate("/payments")
-        // } else {
-        //   openSummary()
-        // }
         openSummary()
       }}
     >
