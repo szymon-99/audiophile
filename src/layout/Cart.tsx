@@ -8,7 +8,7 @@ import { handleClickOutside } from "../utils/helpers"
 
 const Cart: FC = () => {
   const cartRef = useRef<HTMLDivElement>(null)
-  const { toggleCart, clearCart, countTotals } = useActions()
+  const { toggleCart, clearCart } = useActions()
   const { products, totalAmount, totalPrice } = useTypedSelector(
     store => store.cart
   )
@@ -21,10 +21,6 @@ const Cart: FC = () => {
         handleClickOutside(e, toggleCart, cartRef)
       )
   }, [])
-
-  useEffect(() => {
-    countTotals()
-  }, [products])
 
   return (
     <CartWrapper ref={cartRef}>

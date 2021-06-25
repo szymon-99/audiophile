@@ -7,18 +7,29 @@ import Background from "./Background"
 import { useTypedSelector } from "../hooks/useTypedSelector"
 import { useActions } from "../hooks"
 import Summary from "./Summary"
+import { CartProduct } from "../../types"
 
 const Layout: FC = ({ children }) => {
   const { isCartOpen, showModal, showSummary } = useTypedSelector(
     store => store.layout
   )
-  const { closeModal } = useActions()
+  const { products } = useTypedSelector(store => store.cart)
+  const { closeModal, countTotals } = useActions()
   useEffect(() => {
     const show = setTimeout(() => {
       closeModal()
     }, 1500)
     return () => clearTimeout(show)
   }, [showModal])
+
+  const setLocalStorage = (products: CartProduct[]) => {
+    localStorage.setItem("products", JSON.stringify(products))
+  }
+
+  useEffect(() => {
+    setLocalStorage(products)
+    countTotals()
+  }, [products])
 
   return (
     <>

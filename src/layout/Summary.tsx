@@ -63,7 +63,7 @@ const Wrapper = styled.div`
   z-index: 5;
   transform: translate(-50%, -50%);
   display: grid;
-  grid-gap: 1.5rem;
+  grid-gap: 1rem;
   .icon {
     background: var(--peach);
     width: 4rem;
@@ -93,6 +93,7 @@ const Wrapper = styled.div`
 
     .items {
       background: var(--gray);
+      padding-bottom: 0.5rem;
       .underline {
         width: 100%;
         margin: 0 auto;

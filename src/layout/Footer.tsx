@@ -7,7 +7,7 @@ import { Link } from "gatsby"
 
 const Footer: FC = () => {
   return (
-    <Wrapper>
+    <Wrapper id="footer">
       <div className="container">
         <div className="underline"></div>
         <nav>

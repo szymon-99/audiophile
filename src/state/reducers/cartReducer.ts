@@ -9,8 +9,14 @@ interface CartState {
   shipping: number
 }
 
+const getLocalStorage = (): CartProduct[] => {
+  const products = localStorage.getItem("products")
+  if (!products) return []
+  return JSON.parse(products)
+}
+
 const initialState: CartState = {
-  products: [],
+  products: getLocalStorage(),
   totalAmount: 0,
   totalPrice: 0,
   shipping: 5000,
