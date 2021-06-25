@@ -58,10 +58,10 @@ const Wrapper = styled.div`
   width: 90vw;
   max-width: 33.75rem;
   padding: 2rem;
-  top: 50%;
+  top: calc(var(--nav-height) + 2rem);
   left: 50%;
   z-index: 5;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   display: grid;
   grid-gap: 1rem;
   .icon {

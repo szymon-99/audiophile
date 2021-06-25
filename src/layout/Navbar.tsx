@@ -72,7 +72,7 @@ const Wrapper = styled.div`
     .burger,
     .cart {
       color: var(--white);
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       cursor: pointer;
       background: transparent;
       border: none;
@@ -91,11 +91,11 @@ const Wrapper = styled.div`
       place-items: center;
       z-index: -1;
       top: -60%;
-      right: -40%;
-      font-size: 0.9rem;
+      right: -30%;
+      font-size: 0.75rem;
       background-color: var(--peach);
-      width: 1.8rem;
-      height: 1.8rem;
+      width: 1.5rem;
+      height: 1.5rem;
       border-radius: 50%;
       transition: var(--transition);
     }
@@ -123,6 +123,15 @@ const Wrapper = styled.div`
       place-items: center;
       .burger {
         display: none;
+      }
+      .cart {
+        font-size: 1.8rem;
+      }
+      .amount {
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 0.9rem;
+        right: -40%;
       }
       .menu {
         display: flex;

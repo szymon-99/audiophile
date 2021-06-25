@@ -20,6 +20,7 @@ const reducer = (state = initialState, action: LayoutAction): LayoutState => {
     return { ...state, isNavOpen: !state.isNavOpen }
   }
   if (action.type === LayoutActionType.TOGGLE_CART) {
+    if (state.showSummary) return { ...state }
     return { ...state, isCartOpen: !state.isCartOpen }
   }
   if (action.type === LayoutActionType.CLOSE_MODAL) {
