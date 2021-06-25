@@ -1,10 +1,11 @@
 import AboutCard from "./AboutCard"
 import CartItem from "./CartItem"
 import ReturnButton from "./ReturnButton"
+import Seo from "./Seo"
 import CartProducts from "./CartProducts"
 export * from "./homePanel"
 export * from "./categoriesPanel"
 export * from "./categoryPage"
 export * from "./productPage"
 export * from "./checkout"
-export { AboutCard, CartProducts, ReturnButton, CartItem }
+export { Seo, AboutCard, CartProducts, ReturnButton, CartItem }

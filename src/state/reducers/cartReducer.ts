@@ -10,9 +10,11 @@ interface CartState {
 }
 
 const getLocalStorage = (): CartProduct[] => {
-  const products = localStorage.getItem("products")
-  if (!products) return []
-  return JSON.parse(products)
+  if (typeof window !== "undefined") {
+    const products = window.localStorage.getItem("products")
+    if (products) return JSON.parse(products)
+  }
+  return []
 }
 
 const initialState: CartState = {

@@ -6,6 +6,7 @@ import {
   AboutCard,
   Categories,
   CategoryProducts,
+  Seo,
 } from "../components"
 import { CategoryProduct } from "../../types"
 
@@ -25,6 +26,7 @@ const Category: FC<CategoryPageProps> = ({ pageContext, data }) => {
   const { products } = data.strapi
   return (
     <Wrapper>
+      <Seo title={category} />
       <CategoryHero category={category} />
       <CategoryProducts products={products} />
       <Categories />

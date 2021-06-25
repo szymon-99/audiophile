@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import styled from "styled-components"
-import { ReturnButton, CheckoutForm } from "../components"
+import { ReturnButton, CheckoutForm, Seo } from "../components"
 import { useTypedSelector } from "../hooks"
 import { Link } from "gatsby"
 
@@ -21,6 +21,7 @@ const Checkout: FC = () => {
   }
   return (
     <div style={{ background: "var(--gray)" }}>
+      <Seo title="checkout" />
       <ReturnButton />
       <CheckoutWrapper>
         <CheckoutForm />
