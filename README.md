@@ -1,6 +1,6 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 
-###[You can watch this site live there](https://audiophile-es.netlify.app/)
+[You can watch this site live there](https://audiophile-es.netlify.app/)
 
 <p align="center">
   <a href="https://www.gatsbyjs.com">
