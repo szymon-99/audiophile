@@ -1,6 +1,6 @@
 # E-commerce frontend built with Gatsby
 
-[LIVE DEMO OF THIS SITE](https://audiophile-es.netlify.app/)
+[LIVE DEMO OF THIS SITE](https://audiophile-live.netlify.app/)
 
 Design comes from [frontendmentor](https://www.frontendmentor.io/) but all of the code and functionallity was created by me.
 
